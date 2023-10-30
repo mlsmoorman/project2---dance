@@ -12,7 +12,8 @@ const passport = require('passport');
 const methodOverride = require('method-override');
 
 const indexRouter = require('./routes/index');
-const teamsRouter = require('./routes/teams');
+const performancesRouter = require('./routes/performances');
+const scoresRouter = require('./routes/scores');
 
 // create the Express app
 const app = express();
@@ -54,7 +55,8 @@ app.use(function (req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRouter);
-app.use('/teams', teamsRouter);
+app.use('/performances', performancesRouter);
+app.use('/', scoresRouter);
 
 // invalid request, send 404 page
 app.use(function(req, res) {
