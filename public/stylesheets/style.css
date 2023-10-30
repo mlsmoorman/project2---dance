@@ -1,20 +1,30 @@
-.brand-logo {
-  margin-left: 15px;
+* {
+  box-sizing: border-box;
+  font-family: Helvetica;
+  color: #424748;
 }
 
-.card .card-content .card-title {
-  margin-bottom: 10px;
+
+
+
+ .login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
 }
 
-#search-row form {
-  padding-top: 20px;
+.login img {
+  height: 30px;
 }
 
-.student-name {
-  position: relative;
-  top: -5px;
+.review-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.collection-item form {
-  margin-top: -5px;
+.review-user img {
+  border-radius: 50%;
+  height: 40px;
 }

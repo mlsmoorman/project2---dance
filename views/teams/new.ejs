@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/teams" method="POST">
+  <label>Team Name:</label>
+  <input type="text" name="teamName">
+  <label>Conference:</label>
+  <input type="text" name="conference">
+  <label>Section:</label>
+  <select name="section">
+    <option value="A">A</option>
+    <option value="AA">AA</option>
+    <option value="AAA">AAA</option>
+  </select>
+
+  <label>Championship Date:
+    <input type="datetime-local" name="championship">
+  </label>
+  <label>Score:</label>
+  <input type="number" name="scores">
+
+  <button type="submit">Add Team</button>
+<br>
+</form>
+
+<%- include('../partials/footer') %>

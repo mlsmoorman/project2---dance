@@ -1,15 +1,18 @@
 // load the env consts
 require('dotenv').config();
+const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-const logger = require('morgan');
 const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+
 // session middleware
 const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
-const indexRoutes = require('./routes/index');
 
+const indexRouter = require('./routes/index');
+const teamsRouter = require('./routes/teams');
 
 // create the Express app
 const app = express();
@@ -50,12 +53,13 @@ app.use(function (req, res, next) {
 });
 
 // mount all routes with appropriate base paths
-app.use('/', indexRoutes);
-
+app.use('/', indexRouter);
+app.use('/teams', teamsRouter);
 
 // invalid request, send 404 page
 app.use(function(req, res) {
   res.status(404).send('Cant find that!');
 });
+
 
 module.exports = app;

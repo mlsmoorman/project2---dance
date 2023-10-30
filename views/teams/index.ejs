@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+
+<table id="Dance Team List">
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Conference</th>
+      <th>Section</th>
+      <th>Championship</th>
+      <th>Score</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% teamDocs.forEach(function(t) { %>
+      <tr>
+        <td><%= t.teamName %></td>
+        <td><%= t.conference %></td>
+        <td><%= t.section %></td>
+        <td><%= t.championship %></td>
+        <td><%= t.scores %></td>
+        <a href="/teams/<%= t._id %>">DETAILS</a>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  
+<%- include('../partials/footer') %>
