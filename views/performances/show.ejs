@@ -54,4 +54,54 @@
     <button type="submit">Add Scores</button>
 </form>
 
+
+<% if (performance.scores.length) {%>
+    <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Technique - Turns / Kicks</th>
+            <th>Technique - Leaps & Jumps / Kick Height</th>
+            <th>Creativity</th>
+            <th>Visual Effectiveness</th>
+            <th>Difficulty of Choreography</th>
+            <th>Difficulty of Formations & Transitions</th>
+            <th>Difficulty of Skills / Kicks</th>
+            <th>Placement & Control</th>
+            <th>Accuracy</th>
+            <th>Routine Effectiveness</th>
+            <th>Comments</th>
+        </tr>
+        </thead>
+        <tbody>
+          <% performance.scores.forEach(function(s) { %>
+
+            <tr>
+                <td class="review-user"><img alt="avatar" src="<%= s.userAvatar %>" referrerpolicy="no-referrer" ><%= s.userName %></td>
+                <td><%= s.techniqueTurnKick %></td>
+                <td><%= s.techLeapJumpHeight %></td>
+                <td><%= s.creativity %></td>
+                <td><%= s.visualEffectiveness %></td>
+                <td><%= s.difficultyChoreo %></td>
+                <td><%= s.difficultyFormTrans %></td>
+                <td><%= s.diffSkillsKicks %></td>
+                <td><%= s.placementControl %></td>
+                <td><%= s.accuracy %></td>
+                <td><%= s.routineEffectiveness %></td>
+                <td>
+                    <% if (user && user._id.equals(s.user)) { %>
+                        <form action="/scores/<%= s._id %>?_method=DELETE" method="POST">
+                          <button type="Submit">X</button>
+                        </form>
+                      <% } %>
+                </td>
+            </tr>
+
+          <% }); %>
+        </tbody>
+    </table>
+<% } else { %>
+    <h3> No Scores Yet! </h3>
+<% } %>
+
 <%- include('../partials/footer') %>

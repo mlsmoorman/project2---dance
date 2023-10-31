@@ -12,6 +12,7 @@ async function show(req, res) {
     try {
         const performanceDocument = await PerformanceModel.findById(req.params.id)
         console.log(performanceDocument)
+
         res.render("performances/show", { performance: performanceDocument })
     } catch(err) {
         console.log(err)

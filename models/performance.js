@@ -51,8 +51,14 @@ const scoresSchema = new mongoose.Schema({
         min: 1,
         max: 10
     },
-    comments: String
-})
+    comments: String,
+    user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    userName: String,
+    userAvatar: String
+}, {
+    timestamps: true,
+}
+);
 
 const performanceSchema = new mongoose.Schema({
     teamName: String,
