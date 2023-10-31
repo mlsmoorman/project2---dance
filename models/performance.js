@@ -65,11 +65,11 @@ const performanceSchema = new mongoose.Schema({
     conference: String,
     style: {
         type: String,
-        enum: ['High Kick', 'Jazz']
+        // enum: ['High Kick', 'Jazz']
     },
     class: {
         type: String,
-        enum: ['A', 'AA', 'AAA']
+        // enum: ['A', 'AA', 'AAA']
     },
     performanceDate: {
         type: Date,

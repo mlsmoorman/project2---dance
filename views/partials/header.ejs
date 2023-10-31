@@ -5,25 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Shadows+Into+Light+Two&display=swap');</style>
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <title> Dance Performances</title>
 </head>
 
 <body>
   <nav>
-    <a href="/">Home Page</a><br>
-    <a href="/performances">All Performances</a>
-    <a href="/performances/new">Add Performance</a>
-
+    
     <!-- user comes from res.locals.user = req.user in the server.js file!!!!!!! -->
     <!-- user will be the mongodb document if logged in
-    if not the user will be undefined meaning they are not logged in -->
-    <% if (user) { %>
+      if not the user will be undefined meaning they are not logged in -->
+      <% if (user) { %>
+        <div id="welcome">Welcome, <%= user.name %></div>
+        <a href="/">Home Page</a>
+        <a href="/performances">All Performances</a>        
+        <a href="/performances/new">Add Performance</a>        
+        <a href="/logout">Logout</a>
 
-      <a href="/logout">LOGOUT</a>
-
-     <% } else { %>
-      <a href="/auth/google" class="login"> LOGIN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png" /> </a>
+      <% } else { %>
+        <a href="/">Home Page</a>
+        <a href="/auth/google" class="login"> Login&nbsp;<img src="https://i.imgur.com/FHjYyi0.png" /> </a>
      <% } %>
 
 

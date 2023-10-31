@@ -1,26 +1,26 @@
 <%- include('../partials/header') %>
 
-<form id="update-form" action="/performances/<% performance._id %>" method="PUT">
-    <label>Team Name:</label>
-    <input type="text" name="teamName">
-    <label>Conference:</label>
-    <input type="text" name="conference">
-    <label>Style:</label>
+<form id="update-form" action="/performances/<%= performance._id %>?_method=PUT" method="POST">
+    <label>Team Name: <%= performance.teamName %></label>
+    <input type="text" name="teamName"><br>
+    <label>Conference: <%= performance.conference %></label>
+    <input type="text" name="conference"><br>
+    <label>Style: <%= performance.style %></label>
     <select name="style">
       <option value="High Kick">High Kick</option>
       <option value="Jazz">Jazz</option>
-    </select>
-    <label>Song:</label>
-    <input type="text" name="song">
-    <label>Class:</label>
+    </select><br>
+    <label>Song: <%= performance.song %></label>
+    <input type="text" name="song"><br>
+    <label>Class: <%= performance.class %></label>
     <select name="class">
       <option value="A">A</option>
       <option value="AA">AA</option>
       <option value="AAA">AAA</option>
-    </select>
-    <label>Performance Date:
+    </select><br>
+    <label>Performance Date: <%= performance.performanceDate %> <br>
       <input type="datetime-local" name="performanceDate">
-    </label>
+    </label><br><br> 
     <button type="submit">Update Performance</button>
   <br>
   </form>

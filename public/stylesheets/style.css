@@ -1,13 +1,55 @@
 * {
   box-sizing: border-box;
-  font-family: Helvetica;
-  color: #424748;
+  font-family: 'Architects Daughter', sans-serif;
+  color: #2f023a;
+}
+
+/* creating template for nav bar "header" and main body of each page */
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas:
+    "nav"
+    "main"
+}
+
+body > nav {
+  grid-area: nav;
+  background-color: #f57979;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px 0 30px;
 }
 
 
+body > main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: #E8ECEB; */
+  padding: 20px;
+  overflow-y: scroll;
+}
 
+nav > a {
+  margin: 20px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
 
- .login {
+/* adds hover over links in header */
+nav > a:hover {
+  color: white;
+  background-color: #5b0c86;
+}
+
+/* updates view of login/logout buttons with GOOGLE*/
+.login {
   display: flex;
   justify-content: center;
   align-items: center;

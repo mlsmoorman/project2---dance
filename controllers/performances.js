@@ -16,8 +16,9 @@ async function update(req, res) {
     const updatePerformance = await PerformanceModel.findOneAndUpdate({_id: req.params.id},
     // this updates the body of the document
     req.body,
+    {new: true}
     // this returns the updated document
-    {new: true}  
+
     );   
     // returns the updated performance
     return res.redirect(`/performances/${updatePerformance._id}`)
@@ -33,12 +34,14 @@ async function edit(req, res) {
     // looking in performance Model to find the ids that match to pull up the selected performance
     const performanceDoc = await PerformanceModel.findOne({_id: req.params.id});
 
-    // checking if they don't match, to return to the performance page
+    // checking if there nothing in performanceDoc to update to return to the performance page
     if (!performanceDoc) return res.redirect('/performances')
-
+    console.log(performanceDoc._id)
     // otherwise, go to the edit page
-    res.render('performances/edit', { performanceDoc });
+    res.render('performances/edit', { performance: performanceDoc });
   }
+
+
 
 async function show(req, res) {
     console.log('<======THIS IS RUNNING THE SHOW FUNCTION=====>')

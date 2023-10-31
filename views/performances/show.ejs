@@ -9,7 +9,7 @@
     <div>Style: </div>
     <div><%= performance.style %></div><br>
     <div>Class: </div>
-    <div><%= performance.section %></div><br>
+    <div><%= performance.class %></div><br>
     <div>Performance Date: </div>
     <div><%= performance.performanceDate %></div><br>
     <div>Song: </div>
@@ -17,43 +17,49 @@
 </section>
   
 <!-- This is the scoresheet allowing users to add scores to the team's performance -->
-<br><br><br>
-<h3>ScoreSheet - please enter a number between 1 & 10</h3>
-<form id="add-scores-form" method="POST" action="/performances/<%= performance._id %>/scores">
+<br><br>
+<h3 id="scoresheet">ScoreSheet</h3>
+<% if (user) { %>
+    <h4>Please enter a number between 1 & 10</h4> 
+    <form id="add-scores-form" method="POST" action="/performances/<%= performance._id %>/scores">
     <label>Technique of Turns/Kicks:</label>
-        <input type="number" name="techniqueTurnKick">
+    <input type="number" name="techniqueTurnKick">
     <br>
     <label>Technique of Leaps & Jumps / Kick Height:</label>
-        <input type="number" name="techLeapJumpHeight">
+    <input type="number" name="techLeapJumpHeight">
     <br>
     <label>Creativity:</label>
-        <input type="number" name="creativity">
+    <input type="number" name="creativity">
     <br>
     <label>Visual Effectiveness:</label>
-        <input type="number" name="visualEffectiveness">
+    <input type="number" name="visualEffectiveness">
     <br>
     <label>Difficulty of Choreography:</label>
-        <input type="number" name="difficultyChoreo">
+    <input type="number" name="difficultyChoreo">
     <br>
     <label>Difficulty of Formations & Transitions:</label>
-        <input type="number" name="difficultyFormTrans">
+    <input type="number" name="difficultyFormTrans">
     <br>
     <label>Difficulty of Skills/Kicks:</label>
-        <input type="number" name="diffSkillsKicks">
+    <input type="number" name="diffSkillsKicks">
     <br>
     <label>Placement & Control:</label>
-        <input type="number" name="placementControl">
+    <input type="number" name="placementControl">
     <br>
     <label>Accuracy:</label>
-        <input type="number" name="accuracy">
+    <input type="number" name="accuracy">
     <br>
     <label>Routine Effectiveness:</label>
-        <input type="number" name="routineEffectiveness">
+    <input type="number" name="routineEffectiveness">
     <br>
     <label>Comments: </label>
-        <input type="text" name="comments">
+    <input type="text" name="comments">
     <br>
     <button type="submit">Add Scores</button>
+    <% } else { %>
+        <h4>You need to be logged in to enter scores!</h4>
+    <% } %>
+    <br><br><br>
 </form>
 
 
@@ -79,7 +85,7 @@
           <% performance.scores.forEach(function(s) { %>
 
             <tr>
-                <td class="review-user"><img alt="avatar" src="<%= s.userAvatar %>" referrerpolicy="no-referrer" ><%= s.userName %></td>
+                <td class="performance-user"><img alt="avatar" src="<%= s.userAvatar %>" referrerpolicy="no-referrer" ><%= s.userName %></td>
                 <td><%= s.techniqueTurnKick %></td>
                 <td><%= s.techLeapJumpHeight %></td>
                 <td><%= s.creativity %></td>

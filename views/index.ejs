@@ -5,16 +5,22 @@
   <title>
     <%= title %>
   </title>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Shadows+Into+Light+Two&display=swap');</style>
   <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
+  </head>
 
 <body>
-  <div>So you think you can judge?</div>
+  <h3>So you think you can JUDGE?</h3>
+  
 
   <a href="/performances">All Performances</a><br>
-  <a href="/performances/new">Add a Performance</a>
   <br>
+  <% if (user) { %>
+    <div>Welcome <%= user.name %></div>   
+ <% } else { %>
+  <a href="/auth/google" class="login"> Login&nbsp;<img src="https://i.imgur.com/FHjYyi0.png" /> </a>
+ <% } %>
   <!-- <a href="/teams/new">Add a Team</a> -->
-</body>
+ </body>
 
 </html>
