@@ -6,5 +6,7 @@ router.get('/', performancesCtrl.index);
 router.get('/new', performancesCtrl.new);
 router.post('/', performancesCtrl.create);
 router.get('/:id', performancesCtrl.show);
+router.get('/:id/edit', performancesCtrl.edit);
+router.put('/:id', performancesCtrl.update);
 
 module.exports = router;

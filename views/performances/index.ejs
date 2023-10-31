@@ -18,6 +18,7 @@
         <td><%= p.song %></td>
         <td><%= p.performanceDate %></td>
         <td><a href="/performances/<%= p._id %>">DETAILS</a></td>
+        <td><a href="/performances/<%= p._id %>/edit" method="GET">UPDATE</a></td>
       </tr>
       <% }); %>
     </tbody>

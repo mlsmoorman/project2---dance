@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
 
+<!-- This is our individual performances page showing additional detail and scores -->
 <section id="show-page">
     <div>School: </div>
     <div><%= performance.teamName %></div><br>
@@ -15,6 +16,7 @@
     <div><%= performance.song %></div><br>
 </section>
   
+<!-- This is the scoresheet allowing users to add scores to the team's performance -->
 <br><br><br>
 <h3>ScoreSheet - please enter a number between 1 & 10</h3>
 <form id="add-scores-form" method="POST" action="/performances/<%= performance._id %>/scores">

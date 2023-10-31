@@ -4,8 +4,41 @@ module.exports = {
     index,
     new: newPerformance,
     create,
-    show
+    show,
+    update,
+    edit
 };
+
+async function update(req, res) {
+    console.log('<========= UPDATE FUNCTION =======>');
+    try {
+    // based on the id of the performance selected, this returns that performance to udpate    
+    const updatePerformance = await PerformanceModel.findOneAndUpdate({_id: req.params.id},
+    // this updates the body of the document
+    req.body,
+    // this returns the updated document
+    {new: true}  
+    );   
+    // returns the updated performance
+    return res.redirect(`/performances/${updatePerformance._id}`)
+    
+    } catch(err) {
+        console.log(err);
+        res.send(err);
+    }
+  }
+
+async function edit(req, res) {
+    console.log('<========= EDIT FUNCTION =======>');
+    // looking in performance Model to find the ids that match to pull up the selected performance
+    const performanceDoc = await PerformanceModel.findOne({_id: req.params.id});
+
+    // checking if they don't match, to return to the performance page
+    if (!performanceDoc) return res.redirect('/performances')
+
+    // otherwise, go to the edit page
+    res.render('performances/edit', { performanceDoc });
+  }
 
 async function show(req, res) {
     console.log('<======THIS IS RUNNING THE SHOW FUNCTION=====>')
