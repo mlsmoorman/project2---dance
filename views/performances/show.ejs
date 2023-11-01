@@ -10,65 +10,100 @@
     <div><%= performance.style %></div><br>
     <div>Class: </div>
     <div><%= performance.class %></div><br>
+    
     <div>Performance Date: </div>
-    <div><%= performance.performanceDate %></div><br>
+    <div><%= performance.performanceDate.toLocaleDateString() %></div><br>
     <div>Song: </div>
     <div><%= performance.song %></div><br>
 </section>
   
 <!-- This is the scoresheet allowing users to add scores to the team's performance -->
 <br><br>
-<h3 id="scoresheet">ScoreSheet</h3>
-<% if (user) { %>
-    <h4>Please enter a number between 1 & 10</h4> 
-    <form id="add-scores-form" method="POST" action="/performances/<%= performance._id %>/scores">
-    <label>Technique of Turns/Kicks:</label>
-    <input type="number" name="techniqueTurnKick">
-    <br>
-    <label>Technique of Leaps & Jumps / Kick Height:</label>
-    <input type="number" name="techLeapJumpHeight">
-    <br>
-    <label>Creativity:</label>
-    <input type="number" name="creativity">
-    <br>
-    <label>Visual Effectiveness:</label>
-    <input type="number" name="visualEffectiveness">
-    <br>
-    <label>Difficulty of Choreography:</label>
-    <input type="number" name="difficultyChoreo">
-    <br>
-    <label>Difficulty of Formations & Transitions:</label>
-    <input type="number" name="difficultyFormTrans">
-    <br>
-    <label>Difficulty of Skills/Kicks:</label>
-    <input type="number" name="diffSkillsKicks">
-    <br>
-    <label>Placement & Control:</label>
-    <input type="number" name="placementControl">
-    <br>
-    <label>Accuracy:</label>
-    <input type="number" name="accuracy">
-    <br>
-    <label>Routine Effectiveness:</label>
-    <input type="number" name="routineEffectiveness">
-    <br>
-    <label>Comments: </label>
-    <input type="text" name="comments">
-    <br>
-    <button type="submit">Add Scores</button>
-    <% } else { %>
-        <h4>You need to be logged in to enter scores!</h4>
-    <% } %>
-    <br><br><br>
-</form>
+<div class="container mt-3 bg-primary text-white text-center">
+   
+    <h3 id="scoresheet">ScoreSheet</h3>
+    <% if (user) { %>
+        <h4 class="text-black">Please enter a number between 1 & 10</h4> 
+        <form id="add-scores-form" method="POST" action="/performances/<%= performance._id %>/scores">
+            <div class="row">
+            <div class="col">
+            
+                <div class="form-floating mb-3 mt-3 text-black">
+                    <input type="number" class="form-control" id="turn-kick" placeholder="Enter Score" name="techniqueTurnKick">
+                    <label for="turn-kick">Technique of Turns/Kicks</label>
+                </div>
+            
+                <div class="form-floating mb-3 mt-3 text-black">
+                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="techLeapJumpHeight">
+                    <label for="leap-jump-height">Technique of Leaps & Jumps / Kick Height</label>
+                </div>
+            
+                <div class="form-floating mb-3 mt-3 text-black">
+                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="creativity">
+                    <label for="leap-jump-height">Creativity</label>
+                </div>
+            
+                <div class="form-floating mb-3 mt-3 text-black">
+                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="visualEffectiveness">
+                    <label for="leap-jump-height">Visual Effectiveness</label>         
+                </div>
+            
+                <div class="form-floating mb-3 mt-3 text-black">
+                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="difficultyChoreo">
+                    <label for="leap-jump-height">Difficulty of Choreography</label>         
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3 mt-3 text-black">
+                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="difficultyFormTrans">
+                    <label for="leap-jump-height">Difficulty of Formations & Transitions</label>         
+                </div>
+                
+                <div class="form-floating mb-3 mt-3 text-black">
+                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="diffSkillsKicks">
+                    <label for="leap-jump-height">Difficulty of Skills/Kicks</label>         
+                </div>
+                
+                <div class="form-floating mb-3 mt-3 text-black">
+                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="placementControl">
+                    <label for="leap-jump-height">Placement & Control</label>         
+                </div>
+                
+                <div class="form-floating mb-3 mt-3 text-black">
+                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="accuracy">
+                    <label for="leap-jump-height">Accuracy</label>         
+                </div>
+                             
+                <div class="form-floating mb-3 mt-3 text-black">
+                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="routineEffectiveness">
+                    <label for="leap-jump-height">Routine Effectiveness</label>         
+                </div>
+                
+            </div>
+            </div>
+           
+            <div class="form-floating mb-3 mt-3 text-black">
+                <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Comments" name="comments">
+                <label for="comment">Comments</label>         
+            </div>
 
+                <button type="submit">Add Scores</button>
+                <% } else { %>
+                    <h4>You need to be logged in to enter scores!</h4>
+                    <% } %>
+                    
+                </form>
+                <br>
+            </div>
+            <br><br>
 
 <% if (performance.scores.length) {%>
-    <table>
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Technique - Turns / Kicks</th>
+    <table class="table table-striped">
+        <thead class="table-primary">
+            <tr>
+            <th>Judge</th>
+            <th>Date Scored</th>
+            <!-- <th>Technique - Turns / Kicks</th>
             <th>Technique - Leaps & Jumps / Kick Height</th>
             <th>Creativity</th>
             <th>Visual Effectiveness</th>
@@ -77,32 +112,48 @@
             <th>Difficulty of Skills / Kicks</th>
             <th>Placement & Control</th>
             <th>Accuracy</th>
-            <th>Routine Effectiveness</th>
+            <th>Routine Effectiveness</th> -->
             <th>Comments</th>
-        </tr>
+            <th>Total Score:</th>
+            
+            </tr>
         </thead>
         <tbody>
-          <% performance.scores.forEach(function(s) { %>
-
+            <% performance.scores.forEach(function(s) { %>
+            <% let totalScore = 0 %>
             <tr>
-                <td class="performance-user"><img alt="avatar" src="<%= s.userAvatar %>" referrerpolicy="no-referrer" ><%= s.userName %></td>
-                <td><%= s.techniqueTurnKick %></td>
-                <td><%= s.techLeapJumpHeight %></td>
-                <td><%= s.creativity %></td>
-                <td><%= s.visualEffectiveness %></td>
-                <td><%= s.difficultyChoreo %></td>
-                <td><%= s.difficultyFormTrans %></td>
-                <td><%= s.diffSkillsKicks %></td>
-                <td><%= s.placementControl %></td>
-                <td><%= s.accuracy %></td>
-                <td><%= s.routineEffectiveness %></td>
+                <td class="performance-user"><img alt="avatar" src="<%= s.userAvatar %>" referrerpolicy="no-referrer" ><br><%= s.userName %></td>
+                <td><%= s.createdAt.toLocaleDateString() %></td>
+                <!-- <td><% s.techniqueTurnKick %></td> -->
+                <% totalScore = totalScore + s.techniqueTurnKick %>
+                <!-- <td><% s.techLeapJumpHeight %></td> -->
+                <% totalScore = totalScore + s.techLeapJumpHeight %>
+                <!-- <td><% s.creativity %></td> -->
+                <% totalScore = totalScore + s.creativity %>
+                <!-- <td><% s.visualEffectiveness %></td> -->
+                <% totalScore = totalScore + s.visualEffectiveness %>
+                <!-- <td><% s.difficultyChoreo %></td> -->
+                <% totalScore = totalScore + s.difficultyChoreo %>
+                <!-- <td><% s.difficultyFormTrans %></td> -->
+                <% totalScore = totalScore + s.difficultyFormTrans %>
+                <!-- <td><% s.diffSkillsKicks %></td> -->
+                <% totalScore = totalScore + s.diffSkillsKicks %>
+                <!-- <td><% s.placementControl %></td> -->
+                <% totalScore = totalScore + s.placementControl %>
+                <!-- <td><% s.accuracy %></td> -->
+                <% totalScore = totalScore + s.accuracy %>
+                <!-- <td><% s.routineEffectiveness %></td> -->
+                <% totalScore = totalScore + s.routineEffectiveness %>
+                <td><%= s.comments  %>
+                <td><%= totalScore %></td>
                 <td>
                     <% if (user && user._id.equals(s.user)) { %>
                         <form action="/scores/<%= s._id %>?_method=DELETE" method="POST">
-                          <button type="Submit">X</button>
+                            <button type="Submit">X</button>
                         </form>
-                      <% } %>
+                        <% } %>
                 </td>
+                <!-- <td><a href="/performance/<%= s._id %>/scores" method="GET">DETAILS</a></td> -->
             </tr>
 
           <% }); %>

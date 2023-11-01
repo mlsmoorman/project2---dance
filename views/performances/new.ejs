@@ -1,29 +1,44 @@
 <%- include('../partials/header') %>
 
-<form id="new-form" action="/performances" method="POST">
-  <label>Team Name:</label>
-  <input type="text" name="teamName">
-  <label>Conference:</label>
-  <input type="text" name="conference">
-  <label>Style:</label>
-  <select name="style">
-    <option value="High Kick">High Kick</option>
-    <option value="Jazz">Jazz</option>
-  </select>
-  <label>Song:</label>
-  <input type="text" name="song">
-  <label>Class:</label>
-  <select name="class">
-    <option value="A">A</option>
-    <option value="AA">AA</option>
-    <option value="AAA">AAA</option>
-  </select>
-  <label>Performance Date:
-    <input type="datetime-local" name="performanceDate">
-  </label>
-<br>
-  <button type="submit">Add Performance</button>
-<br>
-</form>
+<div class="container mt-3">
+  <h2>Performance Submission Page</h2>
+  <p>Complete the form below and submit</p>
+  <form action="/performances" method="POST">
+    <div class="form-floating mb-3 mt-3">
+      <input type="text" class="form-control" id="name" placeholder="Enter Team Name" name="teamName">
+      <label for="name">Team Name</label>
+    </div>
+    
+    <div class="form-floating mb-3 mt-3">
+      <input type="text" class="form-control" id="conference" placeholder="Enter Conference" name="conference">
+      <label for="conference">Conference</label>
+    </div>
+    
+    <div class="form-floating mb-3 mt-3">
+      <input type="text" class="form-control" id="song" placeholder="Enter Song" name="song">
+      <label for="song">Song</label>
+    </div>
 
+    <label>Style:</label>
+    <select class="form-select" name="style">
+      <option value="High Kick">High Kick</option>
+      <option value="Jazz">Jazz</option>
+    </select>
+
+    <label>Class:</label>
+    <select class="form-select" name="class">
+      <option value="A">A</option>
+      <option value="AA">AA</option>
+      <option value="AAA">AAA</option>
+    </select>
+
+  <br>
+    <label>Performance Date:
+      <input type="datetime-local" name="performanceDate">
+    </label>
+  <br><br>
+    <button type="submit">Add Performance</button>
+  <br>
+  </form>
+</div>
 <%- include('../partials/footer') %>

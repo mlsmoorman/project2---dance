@@ -1,28 +1,30 @@
 <%- include('../partials/header') %>
 
 <form id="update-form" action="/performances/<%= performance._id %>?_method=PUT" method="POST">
-    <label>Team Name: <%= performance.teamName %></label>
-    <input type="text" name="teamName"><br>
-    <label>Conference: <%= performance.conference %></label>
-    <input type="text" name="conference"><br>
-    <label>Style: <%= performance.style %></label>
-    <select name="style">
-      <option value="High Kick">High Kick</option>
-      <option value="Jazz">Jazz</option>
-    </select><br>
-    <label>Song: <%= performance.song %></label>
-    <input type="text" name="song"><br>
-    <label>Class: <%= performance.class %></label>
-    <select name="class">
-      <option value="A">A</option>
-      <option value="AA">AA</option>
-      <option value="AAA">AAA</option>
-    </select><br>
-    <label>Performance Date: <%= performance.performanceDate %> <br>
-      <input type="datetime-local" name="performanceDate">
-    </label><br><br> 
-    <button type="submit">Update Performance</button>
-  <br>
+    <div class="mb-3 mt-3">
+        <label>Team Name: <%= performance.teamName %></label>
+        <input type="text" name="teamName"><br>
+        <label>Conference: <%= performance.conference %></label>
+        <input type="text" name="conference"><br>
+        <label>Style: <%= performance.style %></label>
+        <select name="style">
+            <option value="High Kick">High Kick</option>
+            <option value="Jazz">Jazz</option>
+        </select><br>
+        <label>Song: <%= performance.song %></label>
+        <input type="text" name="song"><br>
+        <label>Class: <%= performance.class %></label>
+        <select name="class">
+            <option value="A">A</option>
+            <option value="AA">AA</option>
+            <option value="AAA">AAA</option>
+        </select><br>
+        <label>Performance Date: <%= performance.performanceDate.toLocaleDateString() %> <br>
+            <input type="datetime-local" name="performanceDate">
+        </label><br><br> 
+        <button type="submit" class="btn btn-primary">Update Performance</button>
+        <br>
+    </div>
   </form>
 
 

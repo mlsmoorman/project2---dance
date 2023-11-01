@@ -2,10 +2,8 @@ const PerformanceModel = require('../models/performance')
 
 module.exports = {
     create,
-    deleteScore
+    deleteScore,
 }
-
-
 
 async function deleteScore(req, res) {
     // function deleteScore allows a logged in user to delete the score they personally entered for a team
