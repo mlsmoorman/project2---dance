@@ -19,11 +19,11 @@
   
 <!-- This is the scoresheet allowing users to add scores to the team's performance -->
 <br><br>
-<div class="container mt-3 bg-primary text-white text-center">
-   
+<div class="container mt-3 text-white text-center rounded" style="background-color: #a749da">
+    <br>
     <h3 id="scoresheet">ScoreSheet</h3>
     <% if (user) { %>
-        <h4 class="text-black">Please enter a number between 1 & 10</h4> 
+        <h5 class="text-black">Please enter a number between 1 & 10 for each category along with any comments you have for the performance!</h5> 
         <form id="add-scores-form" method="POST" action="/performances/<%= performance._id %>/scores">
             <div class="row">
             <div class="col">
@@ -82,12 +82,12 @@
             </div>
             </div>
            
-            <div class="form-floating mb-3 mt-3 text-black">
+            <div class="form-floating mb-3 mt-3 w-50 text-black">
                 <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Comments" name="comments">
                 <label for="comment">Comments</label>         
             </div>
 
-                <button type="submit">Add Scores</button>
+                <button type="submit" class="rounded">Add Scores</button>
                 <% } else { %>
                     <h4>You need to be logged in to enter scores!</h4>
                     <% } %>
@@ -98,12 +98,12 @@
             <br><br>
 
 <% if (performance.scores.length) {%>
-    <table class="table table-striped">
+    <table class="table table-sm table-hover table-striped table-bordered table-responsive text-center rounded">
         <thead class="table-primary">
             <tr>
             <th>Judge</th>
             <th>Date Scored</th>
-            <!-- <th>Technique - Turns / Kicks</th>
+            <th>Technique - Turns / Kicks</th>
             <th>Technique - Leaps & Jumps / Kick Height</th>
             <th>Creativity</th>
             <th>Visual Effectiveness</th>
@@ -112,9 +112,10 @@
             <th>Difficulty of Skills / Kicks</th>
             <th>Placement & Control</th>
             <th>Accuracy</th>
-            <th>Routine Effectiveness</th> -->
+            <th>Routine Effectiveness</th>
             <th>Comments</th>
             <th>Total Score:</th>
+            <th>Delete Score?</th>
             
             </tr>
         </thead>
@@ -124,32 +125,32 @@
             <tr>
                 <td class="performance-user"><img alt="avatar" src="<%= s.userAvatar %>" referrerpolicy="no-referrer" ><br><%= s.userName %></td>
                 <td><%= s.createdAt.toLocaleDateString() %></td>
-                <!-- <td><% s.techniqueTurnKick %></td> -->
+                <td><%= s.techniqueTurnKick %></td>
                 <% totalScore = totalScore + s.techniqueTurnKick %>
-                <!-- <td><% s.techLeapJumpHeight %></td> -->
+                <td><%= s.techLeapJumpHeight %></td>
                 <% totalScore = totalScore + s.techLeapJumpHeight %>
-                <!-- <td><% s.creativity %></td> -->
+                <td><%= s.creativity %></td>
                 <% totalScore = totalScore + s.creativity %>
-                <!-- <td><% s.visualEffectiveness %></td> -->
+                <td><%= s.visualEffectiveness %></td>
                 <% totalScore = totalScore + s.visualEffectiveness %>
-                <!-- <td><% s.difficultyChoreo %></td> -->
+                <td><%= s.difficultyChoreo %></td>
                 <% totalScore = totalScore + s.difficultyChoreo %>
-                <!-- <td><% s.difficultyFormTrans %></td> -->
+                <td><%= s.difficultyFormTrans %></td>
                 <% totalScore = totalScore + s.difficultyFormTrans %>
-                <!-- <td><% s.diffSkillsKicks %></td> -->
+                <td><%= s.diffSkillsKicks %></td>
                 <% totalScore = totalScore + s.diffSkillsKicks %>
-                <!-- <td><% s.placementControl %></td> -->
+                <td><%= s.placementControl %></td>
                 <% totalScore = totalScore + s.placementControl %>
-                <!-- <td><% s.accuracy %></td> -->
+                <td><%= s.accuracy %></td>
                 <% totalScore = totalScore + s.accuracy %>
-                <!-- <td><% s.routineEffectiveness %></td> -->
+                <td><%= s.routineEffectiveness %></td>
                 <% totalScore = totalScore + s.routineEffectiveness %>
                 <td><%= s.comments  %>
                 <td><%= totalScore %></td>
                 <td>
                     <% if (user && user._id.equals(s.user)) { %>
                         <form action="/scores/<%= s._id %>?_method=DELETE" method="POST">
-                            <button type="Submit">X</button>
+                            <button type="Submit" style="color: red">X</button>
                         </form>
                         <% } %>
                 </td>
@@ -159,6 +160,7 @@
           <% }); %>
         </tbody>
     </table>
+    </div>
 <% } else { %>
     <h3> No Scores Yet! </h3>
 <% } %>

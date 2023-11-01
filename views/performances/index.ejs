@@ -1,8 +1,11 @@
 <%- include('../partials/header') %>
 
-<div class="container mt-3">
+<div class="container mt-3 text-center">
   <h2>Performance List</h2>
-  <p>You can choose from the below performances or add your own:</p>
+  <p>You can choose from the below performances for additional details.</p>
+  <% if (user) {%>
+  <a href="/performances/new">Add Performance</a> 
+  <% } %>
   <table class="table table-striped">
   <thead class="table-primary">
     <tr>
@@ -10,8 +13,8 @@
       <th>Style</th>
       <th>Song Choice</th>
       <th>Date</th>
-      <th></th>
-      <th></th>
+      <th>Details</th>
+      <th>Updates</th>
     </tr>
   </thead>
   <tbody>

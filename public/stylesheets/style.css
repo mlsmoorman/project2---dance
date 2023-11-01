@@ -17,7 +17,7 @@ body {
 
 body > nav {
   grid-area: nav;
-  background-color: #f57979;
+  background-color: #f2b1b1;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -45,7 +45,7 @@ nav > a {
 /* adds hover over links in header */
 nav > a:hover {
   color: white;
-  background-color: #5b0c86;
+  background-color: #72229c;
 }
 
 

@@ -6,31 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- CUSTOMIZING FONT -->
   <style>@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Shadows+Into+Light+Two&display=swap');</style>
-  <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- CONNECT APP TO BOOTSTRAP FOR STYLING EACH PAGE -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <title> Dance Performances</title>
 </head>
 
 <body>
-  <nav>
-    
-    <!-- user comes from res.locals.user = req.user in the server.js file!!!!!!! -->
-    <!-- user will be the mongodb document if logged in
-      if not the user will be undefined meaning they are not logged in -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+  <div class="container text-center" style="font-family: 'Architects Daughter', sans-serif;">
+    <nav>
+
+      <!-- user comes from res.locals.user = req.user in the server.js file!!!!!!! -->
+      <!-- user will be the mongodb document if logged in
+        if not the user will be undefined meaning they are not logged in -->
       <% if (user) { %>
         <div id="welcome">Welcome, <%= user.name %></div>
         <a href="/">Home Page</a>
         <a href="/performances">All Performances</a>        
         <a href="/performances/new">Add Performance</a>        
         <a href="/logout">Logout</a>
-
-      <% } else { %>
-        <a href="/">Home Page</a>
-        <a href="/auth/google" class="login"> Login&nbsp;<img src="https://i.imgur.com/FHjYyi0.png" /> </a>
-     <% } %>
-
-
-  </nav>
-  <main>
+        
+        <% } else { %>
+          <a href="/">Home Page</a>
+          <a href="/auth/google" class="login"> Login&nbsp;<img src="https://i.imgur.com/FHjYyi0.png" /> </a>
+          <% } %>
+          
+          
+    </nav>
+<main>
