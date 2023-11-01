@@ -79,6 +79,10 @@ const performanceSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    userName: String,
+    userAvatar: String
+}, {
     scores: [scoresSchema]
 })
 

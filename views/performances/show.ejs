@@ -90,7 +90,7 @@
                 <button type="submit" class="rounded">Add Scores</button>
                 <% } else { %>
                     <h4>You need to be logged in to enter scores!</h4>
-                    <% } %>
+                <% } %>
                     
                 </form>
                 <br>
@@ -98,7 +98,7 @@
             <br><br>
 
 <% if (performance.scores.length) {%>
-    <table class="table table-sm table-hover table-striped table-bordered table-responsive text-center rounded">
+    <table class="table table-sm table-hover table-striped table-bordered table-responsive text-center">
         <thead class="table-primary">
             <tr>
             <th>Judge</th>
@@ -115,8 +115,9 @@
             <th>Routine Effectiveness</th>
             <th>Comments</th>
             <th>Total Score:</th>
+            <% if (user) { %>
             <th>Delete Score?</th>
-            
+            <% } %>
             </tr>
         </thead>
         <tbody>
@@ -147,13 +148,15 @@
                 <% totalScore = totalScore + s.routineEffectiveness %>
                 <td><%= s.comments  %>
                 <td><%= totalScore %></td>
+                <% if (user) { %>
                 <td>
                     <% if (user && user._id.equals(s.user)) { %>
                         <form action="/scores/<%= s._id %>?_method=DELETE" method="POST">
                             <button type="Submit" style="color: red">X</button>
                         </form>
-                        <% } %>
+                    <% } %>
                 </td>
+                <% } %>
                 <!-- <td><a href="/performance/<%= s._id %>/scores" method="GET">DETAILS</a></td> -->
             </tr>
 

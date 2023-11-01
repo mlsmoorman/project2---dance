@@ -25,10 +25,15 @@
         <td><%= p.teamName %></td>
         <td><%= p.style %></td>
         <td><%= p.song %></td>
+        
         <td><%= p.performanceDate.toLocaleDateString() %></td>
         <td><button type="button" class="btn btn-outline-info"><a href="/performances/<%= p._id %>">DETAILS</a></td></button>
       <% if (user) { %>
-        <td><button type="button" class="btn btn-outline-warning"><a href="/performances/<%= p._id %>/edit" method="GET">UPDATE</a></td></button>
+        <td>
+        <% if (user && user._id.equals(p.user)) { %>
+            <button type="button" class="btn btn-outline-warning"><a href="/performances/<%= p._id %>/edit" method="GET">UPDATE</a></button>
+        <% } %>
+        </td>
       <% } %>
     </tr>
     <% }); %>

@@ -83,6 +83,9 @@ async function create(req, res, next) {
     console.log(req.body, " <--- contents of the form ")
     console.log(req.user)
     try {
+        req.body.user = req.user._id;
+        req.body.userName = req.user.name;
+        req.body.userAvatar = req.user.avatar;
         const performanceDoc = await PerformanceModel.create(req.body);
         res.redirect("performances")
     } catch(err) {
