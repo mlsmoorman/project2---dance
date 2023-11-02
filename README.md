@@ -1,35 +1,32 @@
-# passport-boilerplate
+# So you think you can...JUDGE?
+
+So you think you can...JUDGE? is a fan app where you can practice skills of judging performances that are viewed throughout the dance team season.  New performances can be entered at any time and anyone can go in and add their scores of those performances.  The user that added a performance can go in and update that performance.  A user that adds a score has the option to also delete that score.
+
+# Screenshot
+
+<img src="https://i.imgur.com/WlroULol.png">
+<img src="https://i.imgur.com/ofElOsal.png">
+<img src="https://i.imgur.com/vfu5fMSl.png">
+<img src="https://i.imgur.com/B5HlLu1l.png">
+<img src="https://i.imgur.com/oiOqO72l.png">
+<img src="https://i.imgur.com/u7B5rGil.png">
+<img src="https://i.imgur.com/9E5ZW1Dl.png">
 
 
-This is your passport boilerplate.
-
-## Setup 
-
-1. Clone the repo
-2. Rename the folder to your Project
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
 
 
-#### Setup your git repo
-0. Setup your `.env` file and add all the things you need! (look at mongoose movies for reference!)
-1. in the project root `git init`
-2. `git add .` to add all the starter code
-3. `git commit -m "setup boilerplate"` 
-4. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-5. copy the remote address
-6. In your terminal add the remote `git remote add origin yourGithubRepo'sAddressGoesHere`
-7. `git pull origin main` If a screen pulls up asking you to do something just press `:q` and then `enter` (thats vim btw :) )
-8. `git push origin main`
+# Technologies Used
 
-#### Setup your login (THE APP WON'T WORK until you do, no VIEWS are setup, or the landing route)
+- JavaScript
+- HTML
+- CSS
+- CardStarter CSS Library
 
-0. Setup your database connection string
-1. Then Setup Your User Model, 
-2. Follow the steps from the lesson plan to get your Google login credentials for your `.env` file (create the file if you haven't), or you can just copy the ones from earlier if you want to reuse them.
-3. Setup the Code in your config passport 
-4. Setup your callback routes in your `routes/index`
-5. Setup a view and test your login!
+# Getting Started
 
-#### Make a commit 
+[Click to Play Connect Four!](your deployment url here)
 
-```git commit -m "setup up oauth and User Model"```
+# Next Steps
+
+- Future enhancement one...
+- Future enhancement two... 
