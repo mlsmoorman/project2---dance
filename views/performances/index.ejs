@@ -5,7 +5,7 @@
   <h2>Performance List</h2>
   <p>You can choose from the below performances for additional details.</p>
   <% if (user) {%>
-  <a href="/performances/new">Add Performance</a> 
+    <a href="/performances/new">Add Performance</a> 
   <% } %>
   <table class="table table-striped">
   <thead class="table-primary">
@@ -21,47 +21,43 @@
     </tr>
   </thead>
   <tbody>
+    <br><br>
     <% performanceDocs.forEach(function(p) { %>
     <tr>
-        <% if (p.teamName === 'Buffalo') { %>
-          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/adyunyp.jpg" style="width:25px; border-radius: 50%;" /> </td><br>
-          <br>
+      <!-- ===== checks to see what the team name is and if there is an image, prints the logo, otherwise just prints the team name ===== -->
+      <% if (p.teamName === 'Buffalo') { %>
+          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/adyunyp.jpg" style="width:25px; border-radius: 50%;" /> </td>
       <% } else if (p.teamName === 'Wayzata') {%>
-          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/8Sp6WyN.png" style="width:25px; border-radius: 50%;" /> </td><br>
-          <br>
+          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/8Sp6WyN.png" style="width:25px; border-radius: 50%;" /> </td>
       <% } else if (p.teamName === 'St. Michael/Albertville') {%>
-          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/uoM91YI.jpg" style="width:25px; border-radius: 50%;" /> </td><br>
-          <br>
+          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/uoM91YI.jpg" style="width:25px; border-radius: 50%;" /> </td>
       <% } else if (p.teamName === 'Minnetonka') {%>
-          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/zXm2E9H.jpg" style="width:25px; border-radius: 50%;" /> </td><br>
-          <br>
+          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/zXm2E9H.jpg" style="width:25px; border-radius: 50%;" /> </td>
       <% } else if (p.teamName === 'Edina') {%>
-          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/Xjb8GPr.png" style="width:25px; border-radius: 50%;" /> </td><br>
-          <br>
+          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/Xjb8GPr.png" style="width:25px; border-radius: 50%;" /> </td>
       <% } else if (p.teamName === 'Eden Prairie') {%>
-          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/gvnwqT9.png" style="width:25px; border-radius: 50%;" /> </td><br>
-          <br>
+          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/gvnwqT9.png" style="width:25px; border-radius: 50%;" /> </td>
       <% } else if (p.teamName === 'Hopkins') {%>
-          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/yaCfzbK.png" style="width:25px; border-radius: 50%;" /> </td><br>
-          <br>
+          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/yaCfzbK.png" style="width:25px; border-radius: 50%;" /> </td>
       <% } else { %>
-          <td><%= p.teamName %></div><br>
-          <br>
+          <td><%= p.teamName %></div>
       <% } %>
-
-
-
-
-
-
-
-
-
         <td><%= p.style %></td>
-        <td><%= p.song %></td>
-        
-        <td><%= p.performanceDate.toLocaleDateString() %></td>
+        <td><%= p.song %></td>        
+
+        <!-- ===== checks to see if date is expired and turns it red ===== -->
+        <% if (p.performanceDate < new Date()) { %>
+          <td style="color: red;"><%= p.performanceDate.toLocaleDateString() %></td>
+        <% } else { %>
+          <td><%= p.performanceDate.toLocaleDateString() %></td>
+        <% } %>
+
+
+        <!-- ===== adds button in the table to view details of each performance ===== -->
         <td><button type="button" class="btn btn-outline-info"><a href="/performances/<%= p._id %>">DETAILS</a></td></button>
+      
+      <!-- ===== if there is a user, creates another column in the table to allow updates to be made, button only shows if the user
+                 added that performance ===== -->
       <% if (user) { %>
         <td>
         <% if (user && user._id.equals(p.user)) { %>
