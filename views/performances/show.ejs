@@ -46,6 +46,85 @@
 </section>
 <br>
 
+
+
+<% if (performance.performanceDate < new Date()) { %>
+<% if (performance.scores.length) { %>
+    <br>
+    <h3>Fan Scores:</h3>
+    <table class="table table-sm table-hover table-striped table-bordered table-responsive text-center">
+        <thead class="table-primary">
+            <tr>
+            <th>Judge</th>
+            <th>Date Scored</th>
+            <th>Technique - Turns / Kicks</th>
+            <th>Technique - Leaps & Jumps / Kick Height</th>
+            <th>Creativity</th>
+            <th>Visual Effectiveness</th>
+            <th>Difficulty of Choreography</th>
+            <th>Difficulty of Formations & Transitions</th>
+            <th>Difficulty of Skills / Kicks</th>
+            <th>Placement & Control</th>
+            <th>Accuracy</th>
+            <th>Routine Effectiveness</th>
+            <th>Comments</th>
+            <th>Total Score:</th>
+            <% if (user) { %>
+            <th>Delete Score?</th>
+            <% } %>
+            </tr>
+        </thead>
+        <tbody>
+            <% performance.scores.forEach(function(s) { %>
+            <% let totalScore = 0 %>
+            <tr>
+                <td class="performance-user"><img alt="avatar" src="<%= s.userAvatar %>" referrerpolicy="no-referrer" ><br><%= s.userName %></td>
+                <td><%= s.createdAt.toLocaleDateString() %></td>
+                <td><%= s.techniqueTurnKick %></td>
+                <% totalScore = totalScore + s.techniqueTurnKick %>
+                <td><%= s.techLeapJumpHeight %></td>
+                <% totalScore = totalScore + s.techLeapJumpHeight %>
+                <td><%= s.creativity %></td>
+                <% totalScore = totalScore + s.creativity %>
+                <td><%= s.visualEffectiveness %></td>
+                <% totalScore = totalScore + s.visualEffectiveness %>
+                <td><%= s.difficultyChoreo %></td>
+                <% totalScore = totalScore + s.difficultyChoreo %>
+                <td><%= s.difficultyFormTrans %></td>
+                <% totalScore = totalScore + s.difficultyFormTrans %>
+                <td><%= s.diffSkillsKicks %></td>
+                <% totalScore = totalScore + s.diffSkillsKicks %>
+                <td><%= s.placementControl %></td>
+                <% totalScore = totalScore + s.placementControl %>
+                <td><%= s.accuracy %></td>
+                <% totalScore = totalScore + s.accuracy %>
+                <td><%= s.routineEffectiveness %></td>
+                <% totalScore = totalScore + s.routineEffectiveness %>
+                <td><%= s.comments  %>
+                <td><%= totalScore %></td>
+                <% if (user) { %>
+                <td>
+                    <% if (user && user._id.equals(s.user)) { %>
+                        <form action="/scores/<%= s._id %>?_method=DELETE" method="POST">
+                            <button type="Submit" style="color: red">X</button>
+                        </form>
+                    <% } %>
+                </td>
+                <% } %>
+                <!-- <td><a href="/performance/<%= s._id %>/scores" method="GET">DETAILS</a></td> -->
+            </tr>
+
+          <% }); %>
+        </tbody>
+    </table>
+    </div>
+<% } else { %>
+    <br>
+    <h3> No Scores Yet! </h3>
+<% } %>
+<br><br>
+<% } %>
+
 <!-- This is the scoresheet allowing users to add scores to the team's performance -->
 <div class="container mt-3 text-white text-center rounded" style="background-color: #6a3d7dbf">
     <% if (performance.performanceDate < new Date()) { %>
@@ -128,83 +207,6 @@
     <% } %>
     <br>
 </div>
-
-<% if (performance.performanceDate < new Date()) { %>
-<% if (performance.scores.length) { %>
-    <br>
-    <h3>Fan Scores:</h3>
-    <table class="table table-sm table-hover table-striped table-bordered table-responsive text-center">
-        <thead class="table-primary">
-            <tr>
-            <th>Judge</th>
-            <th>Date Scored</th>
-            <th>Technique - Turns / Kicks</th>
-            <th>Technique - Leaps & Jumps / Kick Height</th>
-            <th>Creativity</th>
-            <th>Visual Effectiveness</th>
-            <th>Difficulty of Choreography</th>
-            <th>Difficulty of Formations & Transitions</th>
-            <th>Difficulty of Skills / Kicks</th>
-            <th>Placement & Control</th>
-            <th>Accuracy</th>
-            <th>Routine Effectiveness</th>
-            <th>Comments</th>
-            <th>Total Score:</th>
-            <% if (user) { %>
-            <th>Delete Score?</th>
-            <% } %>
-            </tr>
-        </thead>
-        <tbody>
-            <% performance.scores.forEach(function(s) { %>
-            <% let totalScore = 0 %>
-            <tr>
-                <td class="performance-user"><img alt="avatar" src="<%= s.userAvatar %>" referrerpolicy="no-referrer" ><br><%= s.userName %></td>
-                <td><%= s.createdAt.toLocaleDateString() %></td>
-                <td><%= s.techniqueTurnKick %></td>
-                <% totalScore = totalScore + s.techniqueTurnKick %>
-                <td><%= s.techLeapJumpHeight %></td>
-                <% totalScore = totalScore + s.techLeapJumpHeight %>
-                <td><%= s.creativity %></td>
-                <% totalScore = totalScore + s.creativity %>
-                <td><%= s.visualEffectiveness %></td>
-                <% totalScore = totalScore + s.visualEffectiveness %>
-                <td><%= s.difficultyChoreo %></td>
-                <% totalScore = totalScore + s.difficultyChoreo %>
-                <td><%= s.difficultyFormTrans %></td>
-                <% totalScore = totalScore + s.difficultyFormTrans %>
-                <td><%= s.diffSkillsKicks %></td>
-                <% totalScore = totalScore + s.diffSkillsKicks %>
-                <td><%= s.placementControl %></td>
-                <% totalScore = totalScore + s.placementControl %>
-                <td><%= s.accuracy %></td>
-                <% totalScore = totalScore + s.accuracy %>
-                <td><%= s.routineEffectiveness %></td>
-                <% totalScore = totalScore + s.routineEffectiveness %>
-                <td><%= s.comments  %>
-                <td><%= totalScore %></td>
-                <% if (user) { %>
-                <td>
-                    <% if (user && user._id.equals(s.user)) { %>
-                        <form action="/scores/<%= s._id %>?_method=DELETE" method="POST">
-                            <button type="Submit" style="color: red">X</button>
-                        </form>
-                    <% } %>
-                </td>
-                <% } %>
-                <!-- <td><a href="/performance/<%= s._id %>/scores" method="GET">DETAILS</a></td> -->
-            </tr>
-
-          <% }); %>
-        </tbody>
-    </table>
-    </div>
-<% } else { %>
-    <br>
-    <h3> No Scores Yet! </h3>
-<% } %>
-<br><br>
-<% } %>
 <br><br>
 
 <%- include('../partials/footer') %>

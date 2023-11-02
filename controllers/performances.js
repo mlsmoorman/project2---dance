@@ -58,13 +58,9 @@ async function show(req, res) {
 async function index(req, res) {
     try  {
         console.log('<=====RUNNING THE INDEX FUNCTION=====>')
-        const performanceDocuments = await PerformanceModel.find({});
-    
-        console.log("performanceDocs", performanceDocuments)
-        
+        const performanceDocuments = await PerformanceModel.find({}).sort({performanceDate: 1});
+        console.log("performanceDocs", performanceDocuments) 
         res.render("performances/index", { performanceDocs: performanceDocuments });
-
-
     } catch (err) {
         console.log(err);
         res.send(err);
