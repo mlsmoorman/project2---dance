@@ -28,7 +28,7 @@ So you think you can...JUDGE? is a fan app where you can practice skills of judg
 
 [So you think you can...JUDGE?](https://happy-sweatsuit-dove.cyclic.app/)
 
-# Next Steps
+# Future Enhancements
 
 - Ability to look up a school and see all performances that belong to that school and their average scores / link to score details
 - If videos are available on YouTube - create links to the performance so those that may have missed it live, can still add scores and comments
