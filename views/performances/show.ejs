@@ -2,15 +2,31 @@
 
 <!-- This is our individual performances page showing additional detail and scores -->
 <section id="show-page" style="background-color: #6a3d7d43; background-image: url(https://i.imgur.com/niH4tAG.png); background-repeat: no-repeat; background-position: center; background-blend-mode: darken;" class="rounded"><br>
-    <div class="row">
-        <div class="col">
+        <% if (performance.teamName === 'Buffalo') { %>
+            <div class="display-1"><%= performance.teamName %>&nbsp;<img src="https://i.imgur.com/adyunyp.jpg" style="width:100px; border-radius: 50%;" /> </div><br>
+            <br>
+        <% } else if (performance.teamName === 'Wayzata') {%>
+            <div class="display-1"><%= performance.teamName %>&nbsp;<img src="https://i.imgur.com/8Sp6WyN.png" style="width:100px; border-radius: 50%;" /> </div><br>
+            <br>
+        <% } else if (performance.teamName === 'St. Michael/Albertville') {%>
+            <div class="display-1"><%= performance.teamName %>&nbsp;<img src="https://i.imgur.com/uoM91YI.jpg" style="width:100px; border-radius: 50%;" /> </div><br>
+            <br>
+        <% } else if (performance.teamName === 'Minnetonka') {%>
+            <div class="display-1"><%= performance.teamName %>&nbsp;<img src="https://i.imgur.com/zXm2E9H.jpg" style="width:100px; border-radius: 50%;" /> </div><br>
+            <br>
+        <% } else if (performance.teamName === 'Edina') {%>
+            <div class="display-1"><%= performance.teamName %>&nbsp;<img src="https://i.imgur.com/Xjb8GPr.png" style="width:100px; border-radius: 50%;" /> </div><br>
+            <br>
+        <% } else if (performance.teamName === 'Eden Prairie') {%>
+            <div class="display-1"><%= performance.teamName %>&nbsp;<img src="https://i.imgur.com/gvnwqT9.png" style="width:100px; border-radius: 50%;" /> </div><br>
+            <br>
+        <% } else if (performance.teamName === 'Hopkins') {%>
+            <div class="display-1"><%= performance.teamName %>&nbsp;<img src="https://i.imgur.com/yaCfzbK.png" style="width:100px; border-radius: 50%;" /> </div><br>
+            <br>
+        <% } else { %>
             <div class="display-1"><%= performance.teamName %></div><br>
-        </div>
-        <!-- working to get images to show -->
-        <div class="col"><br>
-            <img src="images/<% performance.teamName %>.png" alt="School Logo" style="height: 10px">
-        </div>
-    </div>
+            <br>
+        <% } %>
     <div class="row">
         <div class="col">
             <h5>Conference: </h5>

@@ -23,7 +23,40 @@
   <tbody>
     <% performanceDocs.forEach(function(p) { %>
     <tr>
-        <td><%= p.teamName %></td>
+        <% if (p.teamName === 'Buffalo') { %>
+          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/adyunyp.jpg" style="width:25px; border-radius: 50%;" /> </td><br>
+          <br>
+      <% } else if (p.teamName === 'Wayzata') {%>
+          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/8Sp6WyN.png" style="width:25px; border-radius: 50%;" /> </td><br>
+          <br>
+      <% } else if (p.teamName === 'St. Michael/Albertville') {%>
+          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/uoM91YI.jpg" style="width:25px; border-radius: 50%;" /> </td><br>
+          <br>
+      <% } else if (p.teamName === 'Minnetonka') {%>
+          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/zXm2E9H.jpg" style="width:25px; border-radius: 50%;" /> </td><br>
+          <br>
+      <% } else if (p.teamName === 'Edina') {%>
+          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/Xjb8GPr.png" style="width:25px; border-radius: 50%;" /> </td><br>
+          <br>
+      <% } else if (p.teamName === 'Eden Prairie') {%>
+          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/gvnwqT9.png" style="width:25px; border-radius: 50%;" /> </td><br>
+          <br>
+      <% } else if (p.teamName === 'Hopkins') {%>
+          <td><%= p.teamName %>&nbsp;<img src="https://i.imgur.com/yaCfzbK.png" style="width:25px; border-radius: 50%;" /> </td><br>
+          <br>
+      <% } else { %>
+          <td><%= p.teamName %></div><br>
+          <br>
+      <% } %>
+
+
+
+
+
+
+
+
+
         <td><%= p.style %></td>
         <td><%= p.song %></td>
         

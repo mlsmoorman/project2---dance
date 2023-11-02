@@ -36,8 +36,6 @@ async function create(req, res) {
     try{
         // this is looking up the ID of the performance we are adding a score to:
         const performanceDoc = await PerformanceModel.findById(req.params.id);
-        // console.log(performanceDoc)
-        console.log(performanceDoc.scores[1], '<------trying to figure a way to add these')
 
         // this is also pulling in our user data into the form to attach to the review for future use
         req.body.user = req.user._id;
