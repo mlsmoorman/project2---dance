@@ -6,7 +6,7 @@
         <h2>Update Performance Below...</h2>
         <br>
         <div class="mb-3 mt-3">
-            <!-- <input type="text" name="teamName"><br> -->
+            <!-- ===== This form returns the information already entered by the user and allows for updates ===== -->
             <label>Team Name: </label>
             <input className="form-control" defaultValue="<%= performance.teamName %>"
                 value="<%= performance.teamName %>" type="text" name="teamName" placeholder="Team Name"/><br><br>
@@ -14,7 +14,6 @@
             <label>Conference: <%= performance.conference %></label>
             <input className="form-control" defaultValue="<%= performance.conference %>"
                 value="<%= performance.conference %>" type="text" name="conference" placeholder="Conference"/><br><br>
-            
             
             <label>Current Style: <%= performance.style %></label>
             <select name="style">
@@ -36,12 +35,10 @@
             <label>Current Performance Date: <%= performance.performanceDate.toLocaleDateString() %> <br>
                 <input type="datetime-local" name="performanceDate">
             </label><br><br> 
-            
-            
-            <button type="submit" style="background-color: white;" class="btn rounded">Update Performance</button>
-            
-            
+        
+            <button type="submit" style="background-color: white;" class="btn rounded">Update Performance</button>           
             <br>
+        
         </div>
         <br>
   </form>

@@ -6,21 +6,37 @@ module.exports = {
     create,
     show,
     update,
-    edit
+    edit,
+    deletePerformance
 };
 
+async function deletePerformance(req, res) {
+    // function deletePerformance allows a logged in user to delete the performance they personally entered
+    //console.log('<==========PERFORMANCE DELETE FUNCTION ======>');
+    try {
+        // this is looking in the performance model for the performance ID that matches the X clicked on, removing it and saving
+        const performanceDoc = await PerformanceModel.findOneAndRemove({_id: req.params.id},
+        req.body,
+        {new: true}
+        );
+        res.redirect(`/performances/`)
+    } catch(err) {
+        console.log(err);
+        res.send(err);
+    }
+}
+
 async function update(req, res) {
-    console.log('<========= UPDATE FUNCTION =======>');
+    // console.log('<========= UPDATE FUNCTION =======>');
     try {
     // based on the id of the performance selected, this returns that performance to udpate    
     const updatePerformance = await PerformanceModel.findOneAndUpdate({_id: req.params.id},
     // this updates the body of the document
     req.body,
-    {new: true}
     // this returns the updated document
-
+    {new: true}
     );   
-    // returns the updated performance
+    // returns the user to the updated performance page
     return res.redirect(`/performances/${updatePerformance._id}`)
     
     } catch(err) {
@@ -30,7 +46,7 @@ async function update(req, res) {
   }
 
 async function edit(req, res) {
-    console.log('<========= EDIT FUNCTION =======>');
+    // console.log('<========= EDIT FUNCTION =======>');
     // looking in performance Model to find the ids that match to pull up the selected performance
     const performanceDoc = await PerformanceModel.findOne({_id: req.params.id});
 
@@ -44,7 +60,7 @@ async function edit(req, res) {
 
 
 async function show(req, res) {
-    console.log('<======THIS IS RUNNING THE SHOW FUNCTION=====>')
+    //console.log('<======THIS IS RUNNING THE SHOW FUNCTION=====>')
     try {
         const performanceDocument = await PerformanceModel.findById(req.params.id)
         console.log(performanceDocument)
@@ -56,27 +72,23 @@ async function show(req, res) {
 }
 
 async function index(req, res) {
+    //console.log('<=====RUNNING THE INDEX FUNCTION=====>')
     try  {
-        console.log('<=====RUNNING THE INDEX FUNCTION=====>')
         const performanceDocuments = await PerformanceModel.find({}).sort({performanceDate: 1});
-        console.log("performanceDocs", performanceDocuments) 
         res.render("performances/index", { performanceDocs: performanceDocuments });
     } catch (err) {
         console.log(err);
         res.send(err);
     }
-    
 }
 
 async function newPerformance(req, res, next) {
-    console.log('<=====RUNNING THE NEW FUNCTION=====>')
+    //console.log('<=====RUNNING THE NEW FUNCTION=====>')
     res.render("performances/new")
 }
 
 async function create(req, res, next) {
-    console.log('<=====RUNNING THE CREATE FUNCTION=====>')
-    console.log(req.body, " <--- contents of the form ")
-    console.log(req.user)
+    //console.log('<=====RUNNING THE CREATE FUNCTION=====>')
     try {
         req.body.user = req.user._id;
         const performanceDoc = await PerformanceModel.create(req.body);

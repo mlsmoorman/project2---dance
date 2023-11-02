@@ -23,6 +23,8 @@
       <div class="container-fluid">
         <ul class="nav">
           <li class="nave-item" style="padding-left: 30px">
+            
+              <!-- ===== Updates the information in the nav bar based on if a user is logged in or not ===== -->
               <% if (user) { %>
                 <span class="navbar-text" style="padding-right: 30px" id="welcome">Welcome, <%= user.name %></span>
                 <a href="/" style="padding-right: 30px">Home Page</a>

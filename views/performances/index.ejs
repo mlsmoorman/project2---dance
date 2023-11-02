@@ -11,13 +11,14 @@
   <table class="table table-striped">
   <thead class="table-primary">
     <tr>
-      <th>School</th>
-      <th>Style</th>
-      <th>Song Choice</th>
-      <th>Date</th>
-      <th>Details</th>
+      <th><h4>School</h4></th>
+      <th><h4>Style</h4></th>
+      <th><h4>Song Choice</h4></th>
+      <th><h4>Date</h4></th>
+      <th><h4>Details</h4></th>
       <% if (user) { %>
-      <th>Updates</th>
+      <th><h4>Updates</h4></th>
+      <th><h4>Delete</h4></th>
       <% } %>
     </tr>
   </thead>
@@ -60,11 +61,21 @@
       <!-- ===== if there is a user, creates another column in the table to allow updates to be made, button only shows if the user
                  added that performance ===== -->
       <% if (user) { %>
-        <td>
         <% if (user && user._id.equals(p.user)) { %>
+          <td>
             <button type="button" class="btn btn-outline-warning"><a href="/performances/<%= p._id %>/edit" method="GET">UPDATE</a></button>
+          </td>
+        <!-- ***************************     -->
+          <td>
+            <form action="/performances/<%= p._id %>?_method=DELETE" method="POST">
+              <button type="Submit" style="color: red; background-color: lightgray;" class="rounded">X</button>
+            </form>
+          </td>
+        <!-- ***************************     -->
+        <% } else { %>
+          <td></td>
+          <td></td>
         <% } %>
-        </td>
       <% } %>
     </tr>
     <% }); %>

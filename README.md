@@ -12,21 +12,18 @@ So you think you can...JUDGE? is a fan app where you can practice skills of judg
 <img src="https://i.imgur.com/u7B5rGil.png">
 <img src="https://i.imgur.com/9E5ZW1Dl.png">
 
-
-
-
 # Technologies Used
 
 - JavaScript
 - HTML
-- CSS
 - Bootstrap CSS Framework
 - Google Authentication
 - Cyclic/AWS Deployment
 
 # Let's Check it Out!
 
-[So you think you can...JUDGE?](https://happy-sweatsuit-dove.cyclic.app/)
+### [So you think you can...JUDGE?](https://happy-sweatsuit-dove.cyclic.app/)
+### [Trello](https://trello.com/b/zwdcPKCz/project-2)
 
 # Future Enhancements
 
