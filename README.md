@@ -20,13 +20,19 @@ So you think you can...JUDGE? is a fan app where you can practice skills of judg
 - JavaScript
 - HTML
 - CSS
-- CardStarter CSS Library
+- Bootstrap CSS Framework
+- Google Authentication
+- Cyclic/AWS Deployment
 
-# Getting Started
+# Let's Check it Out!
 
-[Click to Play Connect Four!](your deployment url here)
+[So you think you can...JUDGE?](https://happy-sweatsuit-dove.cyclic.app/)
 
 # Next Steps
 
-- Future enhancement one...
-- Future enhancement two... 
+- Ability to look up a school and see all performances that belong to that school and their average scores / link to score details
+- If videos are available on YouTube - create links to the performance so those that may have missed it live, can still add scores and comments
+- Create a JAM section for the app that allows officials access to enter scores during competitions
+    - Give specific access to JAM Judges to enter official scores
+    - Give specific access to JAM Superior Judges to update / remove scores, if needed
+
