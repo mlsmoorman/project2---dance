@@ -1,32 +1,52 @@
 <%- include('../partials/header') %>
 
-<form id="update-form" action="/performances/<%= performance._id %>?_method=PUT" method="POST">
-    <div class="mb-3 mt-3">
-        <label>Team Name: <%= performance.teamName %></label>
-        <input type="text" name="teamName"><br>
-        <label>Conference: <%= performance.conference %></label>
-        <input type="text" name="conference"><br>
-        <label>Style: <%= performance.style %></label>
-        <select name="style">
-            <option value="High Kick">High Kick</option>
-            <option value="Jazz">Jazz</option>
-        </select><br>
-        <label>Song: <%= performance.song %></label>
-        <input type="text" name="song"><br>
-        <label>Class: <%= performance.class %></label>
-        <select name="class">
-            <option value="A">A</option>
-            <option value="AA">AA</option>
-            <option value="AAA">AAA</option>
-        </select><br>
-        <label>Performance Date: <%= performance.performanceDate.toLocaleDateString() %> <br>
-            <input type="datetime-local" name="performanceDate">
-        </label><br><br> 
-        <button type="submit" class="btn btn-primary">Update Performance</button>
+<div class="container mt-3 text-white text-center rounded" style="background-color: #a749da; width: 50%;">
+    <form id="update-form" action="/performances/<%= performance._id %>?_method=PUT" method="POST">
         <br>
-    </div>
-  </form>
+        <div class="mb-3 mt-3">
+            <!-- <input type="text" name="teamName"><br> -->
+            <label>Team Name: </label>
+            <input className="form-control" defaultValue="<%= performance.teamName %>"
+                value="<%= performance.teamName %>" type="text" name="teamName" placeholder="Team Name"/><br><br>
 
+            <label>Conference: <%= performance.conference %></label>
+            <input className="form-control" defaultValue="<%= performance.conference %>"
+                value="<%= performance.conference %>" type="text" name="conference" placeholder="Conference"/><br><br>
+            
+            
+            <label>Current Style: <%= performance.style %></label>
+            <select name="style">
+                <option value="High Kick">High Kick</option>
+                <option value="Jazz">Jazz</option>
+            </select><br><br>
+            
+            <label>Song: </label>
+            <input className="form-control" defaultValue="<%= performance.song %>"
+                value="<%= performance.song %>" type="text" name="song" placeholder="Song"/><br><br>
+            
+
+            
+            <label>Current Class: <%= performance.class %></label>
+            <select name="class">
+                <option value="A">A</option>
+                <option value="AA">AA</option>
+                <option value="AAA">AAA</option>
+            </select><br>
+            
+            
+            <label>Current Performance Date: <%= performance.performanceDate.toLocaleDateString() %> <br>
+                <input type="datetime-local" name="performanceDate">
+            </label><br><br> 
+            
+            
+            <button type="submit" class="btn btn-primary">Update Performance</button>
+            
+            
+            <br>
+        </div>
+        <br>
+  </form>
+</div>
 
 <!-- <h3>ScoreSheet - please enter a number between 1 & 10</h3>
 <form id="add-scores-form" method="POST" action="/performances/<%= performance._id %>/scores">

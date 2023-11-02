@@ -80,10 +80,8 @@ const performanceSchema = new mongoose.Schema({
         required: true
     },
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    userName: String,
-    userAvatar: String
-}, {
     scores: [scoresSchema]
+}, {
 })
 
 module.exports = mongoose.model("Performance", performanceSchema);

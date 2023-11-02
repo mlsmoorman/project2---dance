@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
-<div class="container mt-3 text-white text-center rounded" style="background-color: #a749da">
+<div class="container mt-3 text-white text-center rounded" style="background-color: #a749da; width: 50%;">
+  <br>
   <h2>Performance Submission Page</h2>
   <p>Complete the form below and submit</p>
   <form action="/performances" method="POST">
@@ -19,18 +20,23 @@
       <label for="song">Song</label>
     </div>
 
-    <label>Style:</label>
-    <select class="form-select" name="style">
-      <option value="High Kick">High Kick</option>
-      <option value="Jazz">Jazz</option>
-    </select>
-
-    <label>Class:</label>
-    <select class="form-select" name="class">
-      <option value="A">A</option>
-      <option value="AA">AA</option>
-      <option value="AAA">AAA</option>
-    </select>
+    <div class="row">
+      <div class="col">
+        <label>Style:</label>
+        <select class="form-select" name="style">
+          <option value="High Kick">High Kick</option>
+          <option value="Jazz">Jazz</option>
+        </select>
+      </div>
+      <div class="col">
+        <label>Class:</label>
+        <select class="form-select" name="class">
+          <option value="A">A</option>
+          <option value="AA">AA</option>
+          <option value="AAA">AAA</option>
+        </select>
+      </div>
+    </div>
 
   <br>
     <label>Performance Date:
@@ -38,6 +44,7 @@
     </label>
   <br><br>
     <button type="submit">Add Performance</button>
+  <br>
   <br>
   </form>
 </div>

@@ -3,7 +3,7 @@
 <!-- This is our individual performances page showing additional detail and scores -->
 <section id="show-page">
     <div>School: </div>
-    <div><%= performance.teamName %></div><br>
+    <div class="display-1"><%= performance.teamName %></div><br>
     <div>Conference: </div>
     <div><%= performance.conference %></div><br>
     <div>Style: </div>
@@ -19,6 +19,7 @@
   
 <!-- This is the scoresheet allowing users to add scores to the team's performance -->
 <br><br>
+
 <div class="container mt-3 text-white text-center rounded" style="background-color: #a749da">
     <br>
     <h3 id="scoresheet">ScoreSheet</h3>
@@ -26,78 +27,78 @@
         <h5 class="text-black">Please enter a number between 1 & 10 for each category along with any comments you have for the performance!</h5> 
         <form id="add-scores-form" method="POST" action="/performances/<%= performance._id %>/scores">
             <div class="row">
-            <div class="col">
+                <div class="col">
             
-                <div class="form-floating mb-3 mt-3 text-black">
-                    <input type="number" class="form-control" id="turn-kick" placeholder="Enter Score" name="techniqueTurnKick">
-                    <label for="turn-kick">Technique of Turns/Kicks</label>
+                    <div class="form-floating mb-3 mt-3 text-black">
+                        <input type="number" class="form-control" id="turn-kick" placeholder="Enter Score" name="techniqueTurnKick">
+                        <label for="turn-kick">Technique of Turns/Kicks</label>
+                    </div>
+            
+                    <div class="form-floating mb-3 mt-3 text-black">
+                        <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="techLeapJumpHeight">
+                        <label for="leap-jump-height">Technique of Leaps & Jumps / Kick Height</label>
+                    </div>
+            
+                    <div class="form-floating mb-3 mt-3 text-black">
+                        <input type="number" class="form-control" id="creativity" placeholder="Enter Score" name="creativity">
+                        <label for="leap-jump-height">Creativity</label>
+                    </div>
+            
+                    <div class="form-floating mb-3 mt-3 text-black">
+                        <input type="number" class="form-control" id="visual-effect" placeholder="Enter Score" name="visualEffectiveness">
+                        <label for="leap-jump-height">Visual Effectiveness</label>         
+                    </div>
+            
+                    <div class="form-floating mb-3 mt-3 text-black">
+                        <input type="number" class="form-control" id="choreo" placeholder="Enter Score" name="difficultyChoreo">
+                        <label for="leap-jump-height">Difficulty of Choreography</label>         
+                    </div>
                 </div>
             
-                <div class="form-floating mb-3 mt-3 text-black">
-                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="techLeapJumpHeight">
-                    <label for="leap-jump-height">Technique of Leaps & Jumps / Kick Height</label>
-                </div>
-            
-                <div class="form-floating mb-3 mt-3 text-black">
-                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="creativity">
-                    <label for="leap-jump-height">Creativity</label>
-                </div>
-            
-                <div class="form-floating mb-3 mt-3 text-black">
-                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="visualEffectiveness">
-                    <label for="leap-jump-height">Visual Effectiveness</label>         
-                </div>
-            
-                <div class="form-floating mb-3 mt-3 text-black">
-                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="difficultyChoreo">
-                    <label for="leap-jump-height">Difficulty of Choreography</label>         
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-floating mb-3 mt-3 text-black">
-                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="difficultyFormTrans">
-                    <label for="leap-jump-height">Difficulty of Formations & Transitions</label>         
-                </div>
+                <div class="col">
+                    <div class="form-floating mb-3 mt-3 text-black">
+                        <input type="number" class="form-control" id="diff-form-trans" placeholder="Enter Score" name="difficultyFormTrans">
+                        <label for="leap-jump-height">Difficulty of Formations & Transitions</label>         
+                    </div>
                 
-                <div class="form-floating mb-3 mt-3 text-black">
-                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="diffSkillsKicks">
-                    <label for="leap-jump-height">Difficulty of Skills/Kicks</label>         
-                </div>
+                    <div class="form-floating mb-3 mt-3 text-black">
+                        <input type="number" class="form-control" id="diff-skills-kicks" placeholder="Enter Score" name="diffSkillsKicks">
+                        <label for="leap-jump-height">Difficulty of Skills/Kicks</label>         
+                    </div>
                 
-                <div class="form-floating mb-3 mt-3 text-black">
-                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="placementControl">
-                    <label for="leap-jump-height">Placement & Control</label>         
+                    <div class="form-floating mb-3 mt-3 text-black">
+                        <input type="number" class="form-control" id="placement-control" placeholder="Enter Score" name="placementControl">
+                        <label for="leap-jump-height">Placement & Control</label>         
+                    </div>
+
+                    <div class="form-floating mb-3 mt-3 text-black">
+                        <input type="number" class="form-control" id="accuracy" placeholder="Enter Score" name="accuracy">
+                        <label for="leap-jump-height">Accuracy</label>         
+                    </div>
+
+                    <div class="form-floating mb-3 mt-3 text-black">
+                        <input type="number" class="form-control" id="routine-effect" placeholder="Enter Score" name="routineEffectiveness">
+                        <label for="leap-jump-height">Routine Effectiveness</label>         
+                    </div>
                 </div>
-                
-                <div class="form-floating mb-3 mt-3 text-black">
-                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="accuracy">
-                    <label for="leap-jump-height">Accuracy</label>         
-                </div>
-                             
-                <div class="form-floating mb-3 mt-3 text-black">
-                    <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Score" name="routineEffectiveness">
-                    <label for="leap-jump-height">Routine Effectiveness</label>         
-                </div>
-                
-            </div>
             </div>
            
             <div class="form-floating mb-3 mt-3 w-50 text-black">
-                <input type="number" class="form-control" id="leap-jump-height" placeholder="Enter Comments" name="comments">
+                <input type="text" class="form-control" id="comments" placeholder="Enter Comments" name="comments">
                 <label for="comment">Comments</label>         
             </div>
+            
+            <button type="submit" class="rounded">Add Scores</button>
+        
+        </form>
+    <% } else { %>
+        <h4>You need to be logged in to enter scores!</h4>
+    <% } %>
+    <br>
+</div>
 
-                <button type="submit" class="rounded">Add Scores</button>
-                <% } else { %>
-                    <h4>You need to be logged in to enter scores!</h4>
-                <% } %>
-                    
-                </form>
-                <br>
-            </div>
-            <br><br>
-
-<% if (performance.scores.length) {%>
+<% if (performance.scores.length) { %>
+    <br>
     <table class="table table-sm table-hover table-striped table-bordered table-responsive text-center">
         <thead class="table-primary">
             <tr>
