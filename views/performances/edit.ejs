@@ -23,17 +23,14 @@
             <label>Song: </label>
             <input className="form-control" defaultValue="<%= performance.song %>"
                 value="<%= performance.song %>" type="text" name="song" placeholder="Song"/><br><br>
-            
-
-            
+                      
             <label>Current Class: <%= performance.class %></label>
             <select name="class">
                 <option value="A">A</option>
                 <option value="AA">AA</option>
                 <option value="AAA">AAA</option>
             </select><br>
-            
-            
+                   
             <label>Current Performance Date: <%= performance.performanceDate.toLocaleDateString() %> <br>
                 <input type="datetime-local" name="performanceDate">
             </label><br><br> 
@@ -47,43 +44,5 @@
         <br>
   </form>
 </div>
-
-<!-- <h3>ScoreSheet - please enter a number between 1 & 10</h3>
-<form id="add-scores-form" method="POST" action="/performances/<%= performance._id %>/scores">
-    <label>Technique of Turns/Kicks:</label>
-        <input type="number" name="techniqueTurnKick">
-    <br>
-    <label>Technique of Leaps & Jumps / Kick Height:</label>
-        <input type="number" name="techLeapJumpHeight">
-    <br>
-    <label>Creativity:</label>
-        <input type="number" name="creativity">
-    <br>
-    <label>Visual Effectiveness:</label>
-        <input type="number" name="visualEffectiveness">
-    <br>
-    <label>Difficulty of Choreography:</label>
-        <input type="number" name="difficultyChoreo">
-    <br>
-    <label>Difficulty of Formations & Transitions:</label>
-        <input type="number" name="difficultyFormTrans">
-    <br>
-    <label>Difficulty of Skills/Kicks:</label>
-        <input type="number" name="diffSkillsKicks">
-    <br>
-    <label>Placement & Control:</label>
-        <input type="number" name="placementControl">
-    <br>
-    <label>Accuracy:</label>
-        <input type="number" name="accuracy">
-    <br>
-    <label>Routine Effectiveness:</label>
-        <input type="number" name="routineEffectiveness">
-    <br>
-    <label>Comments: </label>
-        <input type="text" name="comments">
-    <br>
-    <button type="submit">Update Scores</button>
-</form> -->
 
 <%- include('../partials/footer') %>
