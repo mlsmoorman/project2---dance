@@ -10,13 +10,14 @@ So you think you can...JUDGE? is a fan app where you can practice skills of judg
 <img src="https://i.imgur.com/B5HlLu1l.png">
 <img src="https://i.imgur.com/oiOqO72l.png">
 <img src="https://i.imgur.com/u7B5rGil.png">
-<img src="https://i.imgur.com/9E5ZW1Dl.png">
+<img src="https://i.imgur.com/8gUUDy0l.png">
 
 # Technologies Used
 
 - JavaScript
 - HTML
 - Bootstrap CSS Framework
+- Node/Express/MongoDB
 - Google Authentication
 - Cyclic/AWS Deployment
 

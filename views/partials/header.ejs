@@ -23,14 +23,14 @@
       <div class="container-fluid">
         <ul class="nav">
           <li class="nave-item" style="padding-left: 30px">
-            
+            <img src="https://i.imgur.com/kYCWUlm.jpg" class="background-image" style="width: 20px; background-blend-mode: darken;" alt="">
               <!-- ===== Updates the information in the nav bar based on if a user is logged in or not ===== -->
               <% if (user) { %>
 
                 <% let nameArr = user.name.split(' ') %>
                 <% let firstName = nameArr[0] %>
 
-                <span class="navbar-text" style="padding-right: 30px" id="welcome">Welcome, <%= firstName %>!</span>
+                <span class="navbar-text" style="padding-right: 30px; padding-left: 30px;" id="welcome">Welcome, <%= firstName %>!</span>
                 <a href="/" style="padding-right: 30px">Home Page</a>
                 <a href="/performances" style="padding-right: 30px">All Performances</a>        
                 <a href="/performances/new" style="padding-right: 30px">Add Performance</a>        
@@ -39,7 +39,7 @@
                   <a href="/">Home Page</a>
                   <a href="/auth/google" class="login" style="padding-left: 30px"> Login&nbsp;<img src="https://i.imgur.com/FHjYyi0.png" style="width: 20px"/> </a>
               <% } %>
-                  
+              <img src="https://i.imgur.com/LUEnWNi.png" class="background-image" style="width: 40px;" alt="">      
           </li>
         </ul>
       </div>    
