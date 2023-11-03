@@ -21,7 +21,11 @@
       <ul class="nav">
         <li class="nav-items" style="padding-left: 30px">
           <% if (user) { %>
-            <span class="navbar-text">Welcome, <%= user.name %></span> 
+
+            <% let nameArr = user.name.split(' ') %>
+            <% let firstName = nameArr[0] %>
+
+            <span class="navbar-text">Welcome, <%= firstName %>!</span> 
             <a href="/logout" style="padding-left:30px">Logout</a>  
           <% } else { %>
             <a href="/auth/google" class="login"> Login&nbsp;<img src="https://i.imgur.com/FHjYyi0.png" style="width:20px" /></a>

@@ -5,7 +5,7 @@ So you think you can...JUDGE? is a fan app where you can practice skills of judg
 # Screenshot
 
 <img src="https://i.imgur.com/WlroULol.png">
-<img src="https://i.imgur.com/ofElOsal.png">
+<img src="https://i.imgur.com/sQI3XUjl.png">
 <img src="https://i.imgur.com/vfu5fMSl.png">
 <img src="https://i.imgur.com/B5HlLu1l.png">
 <img src="https://i.imgur.com/oiOqO72l.png">

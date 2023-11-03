@@ -82,7 +82,7 @@
                 <% let totalScore = 0 %>
                 <tr>
                 <!-- ===== scores info from database ===== -->
-                <td class="performance-user"><img alt="avatar" src="<%= s.userAvatar %>" referrerpolicy="no-referrer" ><br><%= s.userName %></td>
+                <td class="performance-user"><img alt="avatar" src="<%= s.userAvatar %>" style="border-radius: 50%" referrerpolicy="no-referrer" ><br><%= s.userName %></td>
                 <td><%= s.createdAt.toLocaleDateString() %></td>
                 
                 <td><%= s.techniqueTurnKick %></td>
@@ -124,7 +124,7 @@
                             gives the user the ability to delete them ===== -->
                     <% if (user && user._id.equals(s.user)) { %>
                         <form action="/scores/<%= s._id %>?_method=DELETE" method="POST">
-                            <button type="Submit" style="color: red; background-color: lightgray;">X</button>
+                            <button type="Submit" style="color: red; background-color: lightgray;" class="rounded">X</button>
                         </form>
                     <% } %>
                     </td>
@@ -144,7 +144,7 @@
 <!-- ******************** SCORESHEET ******************** -->
 <div class="container mt-3 text-white text-center rounded" style="background-color: #6a3d7dbf">
     <% if (performance.performanceDate < new Date()) { %>
-    <br><h3 id="scoresheet">ScoreSheet</h3>
+    
     <% if (user) { %>
         <!-- ===== Checking to see if the user already entered a score so that duplicate scores are not allowed for the same performance ==== -->
         <% let alreadyScored = false %>
@@ -154,6 +154,7 @@
             <% } %>
         <% }) %>
         <% if (!alreadyScored) { %>
+            <br><h3 id="scoresheet">ScoreSheet</h3>
             <h5 class="text-black">Please enter a number between 1 & 10 for each category along with any comments you have for the performance!</h5> 
             <form id="add-scores-form" method="POST" action="/performances/<%= performance._id %>/scores">
                 
@@ -226,16 +227,21 @@
                 <button type="submit" class="btn rounded"style="background-color: white;">Add Scores</button>
             </form>
             
-        <% } else { %>        
-            <h3>You've already entered a score for this performance.</h3>
+        <% } else { %> 
+            
+            <% let nameArr = user.name.split(' ') %>
+            <% let firstName = nameArr[0] %>
+
+            <br><h3>Hey <%= firstName %>, you've already entered a score for this performance!  Thank you!</h3>
         <% } %>
     <% } else { %>
-        <h4>You need to be logged in to enter scores!</h4>
+        <br><h4>Hi! You need to be logged in to enter scores!</h4>
+        <a href="/auth/google" class="login" style="padding-left: 30px"> Login&nbsp;<img src="https://i.imgur.com/FHjYyi0.png" style="width: 20px"/> </a><br>
     <% } %>
     <% } else { %>
         <br>
-        <h3>This performance is on <%= performance.performanceDate.toLocaleDateString() %>.</h3>  
-        <h3>Please come back to view and enter your scores after watching!</h3>
+        <h3>This performance is scheduled for <%= performance.performanceDate.toLocaleDateString() %>.</h3>  
+        <h3>Please come back to view and enter scores after watching! Thank you!</h3>
     <% } %>
     <br>
 </div>

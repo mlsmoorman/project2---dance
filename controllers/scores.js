@@ -7,7 +7,6 @@ module.exports = {
 
 async function deleteScore(req, res) {
     // function deleteScore allows a logged in user to delete the score they personally entered for a team
-    // console.log('<==========SCORES DELETE FUNCTION ======>');
     console.log(req.user);
     try {
         // this is looking in the performance model for the scores ID and user ID that matches the X clicked on
@@ -15,7 +14,6 @@ async function deleteScore(req, res) {
             "scores._id": req.params.id,
             "scores.user": req.user._id
         });
-        // console.log(performanceDoc)
         // removes the scores from the performance:
         performanceDoc.scores.remove(req.params.id);
 
@@ -33,7 +31,6 @@ async function deleteScore(req, res) {
 }
 
 async function create(req, res) {
-    // console.log('<==========SCORES CREATE FUNCTION ======>');
     try{
         // this is looking up the ID of the performance we are adding a score to:
         const performanceDoc = await PerformanceModel.findById(req.params.id);

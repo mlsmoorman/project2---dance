@@ -26,7 +26,11 @@
             
               <!-- ===== Updates the information in the nav bar based on if a user is logged in or not ===== -->
               <% if (user) { %>
-                <span class="navbar-text" style="padding-right: 30px" id="welcome">Welcome, <%= user.name %></span>
+
+                <% let nameArr = user.name.split(' ') %>
+                <% let firstName = nameArr[0] %>
+
+                <span class="navbar-text" style="padding-right: 30px" id="welcome">Welcome, <%= firstName %>!</span>
                 <a href="/" style="padding-right: 30px">Home Page</a>
                 <a href="/performances" style="padding-right: 30px">All Performances</a>        
                 <a href="/performances/new" style="padding-right: 30px">Add Performance</a>        

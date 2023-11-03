@@ -11,8 +11,7 @@ module.exports = {
 };
 
 async function deletePerformance(req, res) {
-    // function deletePerformance allows a logged in user to delete the performance they personally entered
-    //console.log('<==========PERFORMANCE DELETE FUNCTION ======>');
+    // ===== Function deletePerformance allows a logged in user to delete the performance they personally entered =====
     try {
         // this is looking in the performance model for the performance ID that matches the X clicked on, removing it and saving
         const performanceDoc = await PerformanceModel.findOneAndRemove({_id: req.params.id},
@@ -27,7 +26,7 @@ async function deletePerformance(req, res) {
 }
 
 async function update(req, res) {
-    // console.log('<========= UPDATE FUNCTION =======>');
+    // ===== The update function takes the information the user adds to the edit page form and updates the database =====
     try {
     // based on the id of the performance selected, this returns that performance to udpate    
     const updatePerformance = await PerformanceModel.findOneAndUpdate({_id: req.params.id},
@@ -46,7 +45,7 @@ async function update(req, res) {
   }
 
 async function edit(req, res) {
-    // console.log('<========= EDIT FUNCTION =======>');
+    // ===== Function edit reacts to a customer clicking on the edit button and directs them to the edit page showing the form =====
     // looking in performance Model to find the ids that match to pull up the selected performance
     const performanceDoc = await PerformanceModel.findOne({_id: req.params.id});
 
@@ -60,7 +59,7 @@ async function edit(req, res) {
 
 
 async function show(req, res) {
-    //console.log('<======THIS IS RUNNING THE SHOW FUNCTION=====>')
+    // ===== The show function directs the customer to the show page once they click on the details of a specific performance =====
     try {
         const performanceDocument = await PerformanceModel.findById(req.params.id)
         console.log(performanceDocument)
@@ -72,7 +71,7 @@ async function show(req, res) {
 }
 
 async function index(req, res) {
-    //console.log('<=====RUNNING THE INDEX FUNCTION=====>')
+    // ===== When "All Performances" is clicked from the Home Page it directs to this page which shows all performances =====
     try  {
         const performanceDocuments = await PerformanceModel.find({}).sort({performanceDate: 1});
         res.render("performances/index", { performanceDocs: performanceDocuments });
@@ -82,13 +81,15 @@ async function index(req, res) {
     }
 }
 
+
 async function newPerformance(req, res, next) {
-    //console.log('<=====RUNNING THE NEW FUNCTION=====>')
+    // ===== Directs the user to the new performer form when they want to add a new performance to the database =====
     res.render("performances/new")
 }
 
 async function create(req, res, next) {
-    //console.log('<=====RUNNING THE CREATE FUNCTION=====>')
+    // ===== Create takes the information on the new performance form 'new page' 
+    //       and enters it in the database to be displayed on the performance page =====
     try {
         req.body.user = req.user._id;
         const performanceDoc = await PerformanceModel.create(req.body);
